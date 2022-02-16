@@ -8,6 +8,10 @@ import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+
+    var total = 0.00;
+    var sizeChosen = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -20,18 +24,51 @@ class MainActivity : AppCompatActivity() {
 
     fun radioClick(view: View){
 // check which radio button was clicked
-        if (view == mediumRadioButton){
-            Toast.makeText(this, "Medium was clicked", Toast.LENGTH_SHORT).show()
+        if (view == mediumRadioButton) {
+            if (sizeChosen == "Large") {
+                total -= 13.99
+            }
+            else if (sizeChosen == "XLarge") {
+                total -= 15.99
+            }
+            else if(sizeChosen == "Medium") {
+                Toast.makeText(this, "Medium is already selected!", Toast.LENGTH_SHORT).show()
+                return
+            }
+            total += 9.99
+            sizeChosen = "Medium"
         }
         else if (view == largeRadioButton){
-
+            if(sizeChosen == "Medium") {
+                total -= 9.99
+            }
+            else if (sizeChosen == "XLarge") {
+                total -=15.99
+            }
+            else if(sizeChosen == "Large") {
+                Toast.makeText(this, "Large is already selected!", Toast.LENGTH_SHORT).show()
+                return
+            }
+            total += 13.99
+            sizeChosen = "Large"
+            //Toast.makeText(this, "Total: $total", Toast.LENGTH_SHORT).show()
         }
-        else if (view == exLargeradioButton){
-
+        else if (view == exLargeRadioButton){
+            if(sizeChosen == "Medium") {
+                total -= 9.99
+            }
+            else if (sizeChosen == "Large") {
+                total -=13.99
+            }
+            else if(sizeChosen == "XLarge") {
+                Toast.makeText(this, "XLarge is already selected!", Toast.LENGTH_SHORT).show()
+                return
+            }
+            total += 15.99
+            sizeChosen = "XLarge"
+            //Toast.makeText(this, "Total: $total", Toast.LENGTH_SHORT).show()
         }
-        else {
-
-        }
+        totalTextView.text = total.toString()
     }
 
 
