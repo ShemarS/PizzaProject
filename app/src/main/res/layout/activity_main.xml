@@ -8,205 +8,275 @@
 
     <TextView
         android:id="@+id/titleTextView"
-        android:layout_width="291dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginBottom="28dp"
+        android:layout_width="313dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="60dp"
         android:text="Pizza Order"
         android:textAlignment="center"
-        android:textSize="34sp"
+        android:textColor="#000000"
+        android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/imageView"
-        app:layout_constraintEnd_toStartOf="@+id/imageView"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintBottom_toTopOf="@+id/pizzaSelectionTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginBottom="266dp"
-        app:layout_constraintBottom_toTopOf="@+id/onionsCheckBox"
+    <TextView
+        android:id="@+id/totalTextView"
+        android:layout_width="252dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="26dp"
+        android:text="Total: $0"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/trackOrderButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/deliveryTextView" />
+
+    <TextView
+        android:id="@+id/deliveryTextView"
+        android:layout_width="91dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="47dp"
+        android:text="Delivery?"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/totalTextView"
+        app:layout_constraintEnd_toStartOf="@+id/deliverySwitch"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topping2RadioGroup" />
+
+    <TextView
+        android:id="@+id/sizeTextView"
+        android:layout_width="183dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginBottom="14dp"
+        android:text="Choose pizza size:"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/sizeRadioGroup"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pizzaImageView" />
+
+    <TextView
+        android:id="@+id/ToppingsTextView"
+        android:layout_width="232dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="8dp"
+        android:text="Extra Toppings ($1.69 each): "
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/toppingsRadioGroup"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sizeRadioGroup" />
+
+    <Switch
+        android:id="@+id/deliverySwitch"
+        android:layout_width="133dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="51dp"
+        android:layout_marginEnd="161dp"
+        android:layout_marginBottom="52dp"
+        android:onClick="onSwitched"
+        android:text="No ($0.00)"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/totalTextView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/sizeTextView"
-        app:layout_constraintTop_toBottomOf="@+id/titleTextView"
-        app:srcCompat="@drawable/bbq_chicken" />
+        app:layout_constraintStart_toEndOf="@+id/deliveryTextView"
+        app:layout_constraintTop_toTopOf="@+id/topping2RadioGroup"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Spinner
         android:id="@+id/pizzaSelectionSpinner"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="54dp"
-        android:layout_marginBottom="87dp"
-        app:layout_constraintBottom_toTopOf="@+id/sizeTextView"
-        app:layout_constraintEnd_toStartOf="@+id/imageView"
+        android:layout_height="30dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="53dp"
+        app:layout_constraintEnd_toStartOf="@+id/pizzaImageView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pizzaSelTextView" />
+        app:layout_constraintTop_toTopOf="@+id/pizzaImageView" />
 
-    <TextView
-        android:id="@+id/pizzaSelTextView"
-        android:layout_width="163dp"
-        android:layout_height="0dp"
-        android:text="Choose your pizza:"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/pizzaSelectionSpinner"
-        app:layout_constraintStart_toStartOf="@+id/pizzaSelectionSpinner"
-        app:layout_constraintTop_toBottomOf="@+id/titleTextView" />
+    <ImageView
+        android:id="@+id/pizzaImageView"
+        android:layout_width="147dp"
+        android:layout_height="90dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/pizzaSelectionSpinner"
+        app:layout_constraintTop_toBottomOf="@+id/pizzaSelectionTextView"
+        app:srcCompat="@drawable/bbq_chicken" />
 
     <RadioGroup
         android:id="@+id/sizeRadioGroup"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="18dp"
+        android:layout_width="387dp"
+        android:layout_height="54dp"
+        android:layout_marginBottom="12dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/ToppingsTextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/sizeTextView"
+        app:layout_constraintStart_toEndOf="@+id/sizeTextView"
         app:layout_constraintTop_toBottomOf="@+id/sizeTextView">
 
         <RadioButton
             android:id="@+id/mediumRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="radioClick"
+            android:onClick="onRadioClick"
             android:text="Medium ($9.99)" />
 
         <RadioButton
             android:id="@+id/largeRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="radioClick"
+            android:onClick="onRadioClick"
             android:text="Large ($13.99)" />
 
         <RadioButton
             android:id="@+id/exLargeRadioButton"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="radioClick"
+            android:layout_height="match_parent"
+            android:onClick="onRadioClick"
             android:text="XLrg ($15.99)" />
 
     </RadioGroup>
 
-    <TextView
-        android:id="@+id/sizeTextView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="80dp"
-        android:layout_marginBottom="11dp"
-        android:text="Choose pizza size:"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/sizeRadioGroup"
-        app:layout_constraintEnd_toStartOf="@+id/imageView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pizzaSelectionSpinner" />
-
-    <TextView
-        android:id="@+id/ToppingsTextView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="74dp"
-        android:text="Extra Toppings ($1.69 each): "
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/broccoliCheckBox"
-        app:layout_constraintEnd_toStartOf="@+id/imageView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sizeRadioGroup" />
-
-    <CheckBox
-        android:id="@+id/onionsCheckBox"
-        android:layout_width="108dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="62dp"
-        android:text="Onions"
-        app:layout_constraintBottom_toTopOf="@+id/SpinachCheckBox"
-        app:layout_constraintStart_toEndOf="@+id/mushroomCheckBox"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-    <CheckBox
-        android:id="@+id/mushroomCheckBox"
-        android:layout_width="0dp"
-        android:layout_height="33dp"
-        android:layout_marginEnd="169dp"
-        android:text="Mushroom"
-        app:layout_constraintBaseline_toBaselineOf="@+id/broccoliCheckBox"
+    <RadioGroup
+        android:id="@+id/toppingsRadioGroup"
+        android:layout_width="408dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="7dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/topping2RadioGroup"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/broccoliCheckBox" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ToppingsTextView">
 
-    <CheckBox
-        android:id="@+id/tomatoesCheckBox"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        <CheckBox
+            android:id="@+id/exCheeseCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:onClick="onChecked"
+            android:text="Extra Cheese" />
+
+        <CheckBox
+            android:id="@+id/mushroomCheckBox"
+            android:layout_width="106dp"
+            android:layout_height="31dp"
+            android:onClick="onChecked"
+            android:text="Mushroom" />
+
+        <CheckBox
+            android:id="@+id/onionsCheckBox"
+            android:layout_width="101dp"
+            android:layout_height="31dp"
+            android:onClick="onChecked"
+            android:text="Onions" />
+
+        <CheckBox
+            android:id="@+id/spinachCheckBox"
+            android:layout_width="94dp"
+            android:layout_height="29dp"
+            android:onClick="onChecked"
+            android:text="Spinach" />
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/topping2RadioGroup"
+        android:layout_width="387dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginEnd="9dp"
+        android:layout_marginBottom="19dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/deliveryTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toppingsRadioGroup">
+
+        <CheckBox
+            android:id="@+id/broccoliCheckBox"
+            android:layout_width="108dp"
+            android:layout_height="29dp"
+            android:onClick="onChecked"
+            android:text="Broccoli" />
+
+        <CheckBox
+            android:id="@+id/blackOlivesCheckBox"
+            android:layout_width="115dp"
+            android:layout_height="29dp"
+            android:onClick="onChecked"
+            android:text="Black Olives" />
+
+        <CheckBox
+            android:id="@+id/tomatoesCheckBox"
+            android:layout_width="105dp"
+            android:layout_height="29dp"
+            android:onClick="onChecked"
+            android:text="Tomatoes" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/pizzaSpinnerTextView"
+        android:layout_width="179dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="46dp"
+        android:layout_marginBottom="45dp"
+        android:text="Choose your pizza:"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/pizzaSelectionSpinner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleTextView"
+        app:layout_constraintVertical_bias="0.25" />
+
+    <TextView
+        android:id="@+id/pizzaSelectionTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="56dp"
+        android:textAlignment="textStart"
+        app:layout_constraintBottom_toTopOf="@+id/pizzaImageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleTextView" />
+
+    <Button
+        android:id="@+id/placeOrderButton"
+        android:layout_width="138dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginEnd="11dp"
+        android:layout_marginBottom="17dp"
+        android:onClick="onOrderClicked"
+        android:text="Place Order"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/trackOrderButton"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/trackOrderButton"
+        android:layout_width="132dp"
+        android:layout_height="43dp"
         android:layout_marginBottom="20dp"
-        android:text="Tomatoes"
-        app:layout_constraintBottom_toTopOf="@+id/exCheeseCheckBox"
-        app:layout_constraintEnd_toEndOf="@+id/mushroomCheckBox"
-        app:layout_constraintStart_toStartOf="@+id/mushroomCheckBox"
-        app:layout_constraintTop_toBottomOf="@+id/broccoliCheckBox" />
-
-    <CheckBox
-        android:id="@+id/exCheeseCheckBox"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="3dp"
-        android:layout_marginBottom="68dp"
-        android:text="Extra Cheese"
-        app:layout_constraintBottom_toTopOf="@+id/totalTextView"
-        app:layout_constraintEnd_toStartOf="@+id/blackOlivesCheckBox"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tomatoesCheckBox" />
-
-    <CheckBox
-        android:id="@+id/blackOlivesCheckBox"
-        android:layout_width="0dp"
-        android:layout_height="29dp"
-        android:layout_marginEnd="22dp"
-        android:text="Black Olives"
-        app:layout_constraintBaseline_toBaselineOf="@+id/exCheeseCheckBox"
-        app:layout_constraintEnd_toStartOf="@+id/SpinachCheckBox"
-        app:layout_constraintStart_toEndOf="@+id/exCheeseCheckBox" />
-
-    <CheckBox
-        android:id="@+id/SpinachCheckBox"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="41dp"
-        android:layout_marginBottom="175dp"
-        android:text="Spinach"
+        android:onClick="onTrackOrderClicked"
+        android:text="Track"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/blackOlivesCheckBox"
-        app:layout_constraintTop_toBottomOf="@+id/onionsCheckBox" />
-
-    <CheckBox
-        android:id="@+id/broccoliCheckBox"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="11dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="25dp"
-        android:text="Broccoli"
-        app:layout_constraintBottom_toTopOf="@+id/tomatoesCheckBox"
-        app:layout_constraintEnd_toStartOf="@+id/mushroomCheckBox"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ToppingsTextView" />
-
-    <TextView
-        android:id="@+id/totalTextView"
-        android:layout_width="181dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="72dp"
-        android:text="Total: $0"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/exCheeseCheckBox" />
+        app:layout_constraintStart_toEndOf="@+id/placeOrderButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
